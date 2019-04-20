@@ -77,8 +77,7 @@ void loop() {
 
     //戻るキー
     if(in_now == 0 && out_now == 0){
-      // ReverceKana();
-      input_mode += 1;
+      input_mode = 1;
       delay(100);
       while(digitalRead(IN[in_now]) == LOW){}
     //backspace
@@ -98,17 +97,17 @@ void loop() {
       delay(100);
       while(digitalRead(IN[in_now]) == LOW){}
     //右キー
-    }else if(in_now == 1 && out_now == 4){
+    }else if(in_now == 3 && out_now == 4){
       Keyboard.write(KEY_RIGHT_ARROW); 
       delay(100);
       while(digitalRead(IN[in_now]) == LOW){}
     //上キー
     }else if(in_now == 2 && out_now == 0){
-      Keyboard.write(KEY_UP_ARROW); 
+      input_mode = 0;
       delay(100);
       while(digitalRead(IN[in_now]) == LOW){}
     //スペースキー  
-    }else if(in_now == 2 && out_now == 4){
+    }else if(in_now == 1 && out_now == 4){
       Keyboard.write(' '); 
       delay(100);
       while(digitalRead(IN[in_now]) == LOW){}
@@ -124,7 +123,7 @@ void loop() {
       }
       while(digitalRead(IN[in_now]) == LOW){}
     //エンターキー  
-    }else if(in_now == 3 && out_now == 4){
+    }else if(in_now == 2 && out_now == 4){
       Keyboard.write(KEY_RETURN); 
       delay(100);
       while(digitalRead(IN[in_now]) == LOW){}
